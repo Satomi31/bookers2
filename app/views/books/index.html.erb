@@ -1,17 +1,13 @@
-<h1>User info</h1>
-<%= image_tag current_user.get_profile_image %>
-<%= current_user.name %>
-<%= current_user.introduction %>
-<%= link_to '編集(後で修正)', edit_user_path(current_user.id) %>
-
-<h1>New book</h1>
-<%= form_with model: @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :opinion %>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
+
+<%= render partial: 'info', locals: { user: @user, book_new: @book_new } %>
 
 <h2>Books</h2>
   <table>
