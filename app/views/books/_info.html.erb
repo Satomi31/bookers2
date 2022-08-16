@@ -2,7 +2,7 @@
 <%= image_tag user.get_profile_image %>
 <%= user.name %>
 <%= user.introduction %>
-<%= link_to '編集(後で修正)', edit_user_path(current_user.id) %>
+<%= link_to '編集(後で修正)', edit_user_path(user.id) %>
 
 <h1>New book</h1>
 <%= form_with model: book_new do |f| %>

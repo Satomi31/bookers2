@@ -11,9 +11,6 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: key) %>
-    <% end %>
     <header>
       <%= link_to "Bookers", root_path %>
       <% if user_signed_in? %>
@@ -44,6 +41,8 @@
         </li>
       <% end %>
     </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <footer>
       <p>CopyRight Infratop.inc</p>
